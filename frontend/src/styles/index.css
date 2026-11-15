@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   APPOINTIFY — Global design system
+   Burgundy & Ivory · luxury editorial
+   ============================================================ */
+
+@layer base {
+  :root {
+    --burgundy: #641e32;
+    --burgundy-dark: #481421;
+    --rosewood: #a65d6b;
+    --soft-rose: #d6a6a9;
+    --ivory: #fff9f0;
+    --cream: #f8efe6;
+    --light-bg: #fcf8f4;
+    --charcoal: #2a2a2a;
+    --muted: #756b68;
+    --border: #e9ddd7;
+    --gold: #c9a96a;
+    --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-ivory font-sans text-charcoal;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display text-burgundy-800;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: rgba(100, 30, 50, 0.16);
+    color: #481421;
+  }
+
+  /* --- Elegant scrollbar --- */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--rosewood), var(--burgundy));
+    border-radius: 99px;
+    border: 2px solid var(--cream);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--burgundy); }
+
+  input, select, textarea { font-family: inherit; }
+
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--rosewood);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold
+           transition-all duration-300 ease-elegant select-none disabled:opacity-50
+           disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-burgundy text-ivory px-6 py-3 text-sm shadow-glow
+           hover:bg-burgundy-800 hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply btn bg-ivory text-burgundy px-6 py-3 text-sm border border-edge
+           hover:border-burgundy-300 hover:bg-white hover:-translate-y-0.5 hover:shadow-card active:translate-y-0 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-burgundy px-5 py-2.5 text-sm hover:bg-burgundy-50 active:scale-[0.98];
+  }
+  .btn-gold {
+    @apply btn text-charcoal px-6 py-3 text-sm font-bold bg-gold-gradient
+           hover:brightness-105 hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0;
+  }
+  .btn-sm { @apply px-4 py-2 text-xs; }
+  .btn-lg { @apply px-8 py-4 text-base; }
+
+  /* ---------- Cards ---------- */
+  .card {
+    @apply bg-white rounded-3xl border border-edge shadow-card
+           transition-all duration-400 ease-elegant;
+  }
+  .card-hover {
+    @apply hover:-translate-y-1.5 hover:shadow-lift hover:border-burgundy-100;
+  }
+  .glass {
+    background: rgba(255, 249, 240, 0.72);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    @apply border border-white/60 shadow-glass;
+  }
+  .glass-dark {
+    background: rgba(72, 20, 33, 0.62);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 249, 240, 0.14);
+  }
+
+  /* ---------- Form ---------- */
+  .field {
+    @apply w-full rounded-xl border border-edge bg-white px-4 py-3 text-sm text-charcoal
+           placeholder:text-muted/70 transition-all duration-300 ease-elegant
+           hover:border-burgundy-200 focus:border-burgundy focus:ring-4 focus:ring-burgundy-100
+           focus:outline-none disabled:bg-cream disabled:cursor-not-allowed;
+  }
+  .field-label {
+    @apply block text-xs font-bold uppercase tracking-[0.14em] text-muted mb-2;
+  }
+  .field-error {
+    @apply mt-1.5 text-xs font-medium text-burgundy-600 flex items-center gap-1;
+  }
+
+  /* ---------- Section helpers ---------- */
+  .section-pad { @apply py-20 md:py-28; }
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-extrabold uppercase
+           tracking-[0.22em] text-rosewood;
+  }
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.08] text-burgundy-800;
+  }
+  .section-sub {
+    @apply text-base md:text-lg text-muted leading-relaxed max-w-2xl;
+  }
+
+  /* ---------- Badges ---------- */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold
+           uppercase tracking-wider;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .gradient-text {
+    background: linear-gradient(115deg, #481421 0%, #641E32 35%, #A65D6B 70%, #C9A96A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #A65D6B 0%, #FFF9F0 40%, #C9A96A 60%, #A65D6B 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hide-scroll::-webkit-scrollbar { display: none; }
+  .hide-scroll { scrollbar-width: none; }
+}
+
+/* ---------- Page transition ---------- */
+.page-enter { animation: pageIn 0.5s var(--ease-elegant) both; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Toast styling (react-hot-toast) ---------- */
+[data-sonner-toast],
+.toast-custom {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .page-enter { animation: none; opacity: 1; transform: none; }
+}
