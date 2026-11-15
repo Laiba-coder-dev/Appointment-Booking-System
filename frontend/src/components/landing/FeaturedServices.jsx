@@ -107,7 +107,7 @@ export default function FeaturedServices() {
   }, []);
 
   return (
-    <Section id="services" className="overflow-hidden bg-ivory">
+    <Section id="services" className="bg-ivory max-lg:overflow-hidden">
       {/* decorative parallax blob */}
       <div
         className="pointer-events-none absolute -right-40 top-16 h-96 w-96 rounded-full bg-burgundy-100/45 blur-3xl"
