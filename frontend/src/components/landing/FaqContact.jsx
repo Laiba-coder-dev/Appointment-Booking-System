@@ -105,7 +105,7 @@ export function FAQSection() {
   }, []);
 
   return (
-    <Section id="faq" className="bg-cream">
+    <Section id="faq" className="overflow-hidden bg-cream">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div data-reveal="left">
           <span className="eyebrow">

@@ -1,25 +1,18 @@
 import axios from 'axios';
 
-/**
- * Central axios instance.
- * - Same-origin requests are proxied by Vite to the Express API.
- * - JWT is attached automatically and refreshed on 401 (single retry).
- */
+
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '',
   timeout: 30000,
   headers: { 'Content-Type': 'application/json' }
 });
-
 const TOKEN_KEY = 'appointify_token';
 const USER_KEY = 'appointify_user';
-
 export const tokenStore = {
   get: () => localStorage.getItem(TOKEN_KEY),
   set: (t) => localStorage.setItem(TOKEN_KEY, t),
   clear: () => localStorage.removeItem(TOKEN_KEY)
 };
-
 export const userStore = {
   get: () => {
     try {

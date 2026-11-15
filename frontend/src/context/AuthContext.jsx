@@ -28,7 +28,6 @@ export function AuthProvider({ children }) {
       setLoading(false);
     }
   }, []);
-
   useEffect(() => {
     refresh();
   }, [refresh]);

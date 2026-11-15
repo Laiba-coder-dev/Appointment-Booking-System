@@ -90,7 +90,7 @@ export default function Hero() {
           </motion.div>
 
           {/* headline — masked line reveal */}
-          <h1 className="mt-7 font-display text-[3rem] font-medium leading-[1.02] text-ivory sm:text-[4rem] lg:text-[4.7rem]">
+          <h1 className="mt-7 font-display text-[clamp(2.125rem,9.8vw,3rem)] font-medium leading-[1.02] text-ivory sm:text-[4rem] lg:text-[4.7rem]">
             {['Your Time.', 'Your Schedule.', 'Your Way.'].map((line, i) => (
               <span key={line} className="block overflow-hidden pb-1">
                 <motion.span
@@ -125,9 +125,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.88, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-9 flex flex-wrap items-center gap-3.5"
+            className="mt-9 flex flex-col items-stretch gap-3.5 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <Link to="/book" className="btn-primary btn-lg group !bg-ivory !text-burgundy-800 hover:!bg-white">
+            <Link to="/book" className="btn-primary btn-lg group w-full justify-center !bg-ivory !text-burgundy-800 hover:!bg-white sm:w-auto">
               <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-90" />
               Book an Appointment
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -135,7 +135,7 @@ export default function Hero() {
 
             <Link
               to="/services"
-              className="btn btn-lg group whitespace-nowrap border border-white/30 bg-white/10 px-7 text-ivory backdrop-blur transition-all duration-300 ease-elegant hover:border-white/50 hover:bg-white/15 hover:-translate-y-0.5"
+              className="btn btn-lg group w-full justify-center border border-white/30 bg-white/10 px-7 text-ivory backdrop-blur transition-all duration-300 ease-elegant hover:border-white/50 hover:bg-white/15 hover:-translate-y-0.5 sm:w-auto sm:whitespace-nowrap"
             >
               <span className="grid h-6 w-6 place-items-center rounded-full bg-white/20">
                 <Play className="h-3 w-3 fill-current" />
